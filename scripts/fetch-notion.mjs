@@ -16,7 +16,9 @@ const NOTION_VERSION = "2022-06-28";
 const PALETTE = ["#4f46e5", "#0ea5e9", "#059669", "#ea580c", "#db2777", "#7c3aed"];
 
 if (!TOKEN || !DATABASE_ID) {
-  console.error("缺少環境變數 NOTION_TOKEN 或 NOTION_DATABASE_ID");
+  console.error("缺少環境變數：");
+  console.error(`  NOTION_TOKEN 長度 = ${(TOKEN || "").length}`);
+  console.error(`  NOTION_DATABASE_ID 長度 = ${(DATABASE_ID || "").length}`);
   process.exit(1);
 }
 
