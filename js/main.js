@@ -1,7 +1,7 @@
-// ===== 假資料：作品集 =====
-// 想放圖片時，把 image 設成圖片路徑，例如 image: "images/work-1.jpg"
-// 若 image 留空字串，會自動顯示原本的色塊 + 縮寫。
-const projects = [
+// ===== 備援假資料 =====
+// 正式資料來自 Notion → data/projects.json（由 GitHub Action 自動產生）。
+// 若 projects.json 讀取失敗，會退回使用下面這份假資料，網站不至於空白。
+const fallbackProjects = [
   {
     name: "Fintech 行動銀行 App",
     tag: "UX / UI · 2025",
@@ -53,10 +53,10 @@ const projects = [
 ];
 
 // ===== 渲染作品卡片 =====
-function renderProjects() {
+function renderProjects(list) {
   const grid = document.getElementById("workGrid");
   if (!grid) return;
-  grid.innerHTML = projects
+  grid.innerHTML = list
     .map(
       (p) => `
       <article class="work-card">
@@ -69,10 +69,24 @@ function renderProjects() {
           <span class="work-tag">${p.tag}</span>
           <h3 class="work-name">${p.name}</h3>
           <p class="work-desc">${p.desc}</p>
+          ${p.video ? `<a class="work-video" href="${p.video}" target="_blank" rel="noopener">觀看影片 →</a>` : ""}
         </div>
       </article>`
     )
     .join("");
+}
+
+// 先嘗試讀 Notion 產生的 data/projects.json，失敗則用備援假資料
+async function loadProjects() {
+  try {
+    const res = await fetch("data/projects.json", { cache: "no-store" });
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    if (Array.isArray(data) && data.length) return data;
+    throw new Error("empty");
+  } catch {
+    return fallbackProjects;
+  }
 }
 
 // ===== 進場動畫（IntersectionObserver）=====
@@ -114,8 +128,9 @@ function setupNav() {
 }
 
 // ===== 初始化 =====
-document.addEventListener("DOMContentLoaded", () => {
-  renderProjects();
-  revealOnScroll();
+document.addEventListener("DOMContentLoaded", async () => {
   setupNav();
+  const list = await loadProjects();
+  renderProjects(list);
+  revealOnScroll();
 });
