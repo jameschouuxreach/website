@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jane Chou — Product Designer</title>
+  <meta name="description" content="Jane Chou 的個人作品集，專注於 UX / 產品設計。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#top" class="logo">Jane&nbsp;Chou</a>
+      <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#work">作品</a></li>
+        <li><a href="#about">關於</a></li>
+        <li><a href="#contact">聯絡</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero container">
+      <p class="hero-eyebrow">Product Designer · Taipei</p>
+      <h1 class="hero-title">
+        設計清晰、有溫度、<br />真正被使用的產品體驗。
+      </h1>
+      <p class="hero-lead">
+        我是 Jane，一位專注於使用者體驗與介面設計的產品設計師，
+        擅長把複雜問題轉化成簡單而優雅的解決方案。
+      </p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">查看作品</a>
+        <a href="#contact" class="btn btn-ghost">與我聯絡</a>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="section container">
+      <div class="section-head">
+        <h2 class="section-title">精選作品</h2>
+        <p class="section-sub">2022–2025 · 精選六件專案</p>
+      </div>
+      <div class="work-grid" id="workGrid"><!-- JS 注入 --></div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section container about">
+      <div class="about-media">
+        <div class="about-photo" aria-hidden="true">JC</div>
+      </div>
+      <div class="about-body">
+        <h2 class="section-title">關於我</h2>
+        <p>
+          我擁有 6 年以上的產品設計經驗，橫跨金融科技、電商與 SaaS 領域。
+          從使用者研究、資訊架構到高保真原型，我相信好的設計來自對問題的深入理解。
+        </p>
+        <p>
+          工作之外，我喜歡攝影、手沖咖啡，以及在部落格上分享設計思考。
+        </p>
+        <ul class="skills">
+          <li>使用者研究</li>
+          <li>互動設計</li>
+          <li>設計系統</li>
+          <li>原型製作</li>
+          <li>Figma</li>
+          <li>前端協作</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section container contact">
+      <h2 class="section-title">一起合作</h2>
+      <p class="contact-lead">
+        有新專案、合作機會，或只是想聊聊設計？歡迎來信。
+      </p>
+      <a class="contact-email" href="mailto:hello@janechou.design">hello@janechou.design</a>
+      <div class="socials">
+        <a href="#" aria-label="Dribbble">Dribbble</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© 2025 Jane Chou</span>
+      <span>Designed &amp; built with care.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
