@@ -106,7 +106,9 @@ a { color: inherit; text-decoration: none; }
 .work-thumb {
   aspect-ratio: 4 / 3; display: grid; place-items: center;
   font-size: 2.4rem; font-weight: 700; color: #fff; letter-spacing: -0.02em;
+  overflow: hidden; background: var(--bg-soft);
 }
+.work-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .work-info { padding: 1.25rem 1.35rem 1.5rem; }
 .work-tag {
   font-size: 0.78rem; color: var(--text-soft);
@@ -126,6 +128,7 @@ a { color: inherit; text-decoration: none; }
   display: grid; place-items: center;
   font-size: 3rem; font-weight: 700; color: var(--text-soft);
 }
+img.about-photo { object-fit: cover; width: 100%; height: auto; }
 .about-body p + p { margin-top: 1rem; }
 .about-body p { color: var(--text-soft); }
 .skills {
